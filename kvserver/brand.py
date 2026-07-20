@@ -22,7 +22,7 @@ def print_logo(logo_path):
             pixel = img.getpixel((x, y))
             line += chars[pixel * len(chars) // 256]
         #print(line)
-        console.print(f"{" "*left_margin}[bold cyan]{line}[/bold cyan]")
+        console.print(f"{' '*left_margin}[bold cyan]{line}[/bold cyan]")
 
     console.print(f"[bold cyan]{text}[/bold cyan]")
     

@@ -12,11 +12,14 @@ setup(
     packages=find_packages(
         include=["kvserver", "kvserver.*"]
     ),
+    include_package_data=True,
+    package_data = {"kvserver": ["*","logo.png"]},
     install_requires=["keyboard", "qrcode_term", "watchdog", "psutil", "pyfiglet", "rich", "Pillow"],
     entry_points={
         "console_scripts": [
             "kvserver = kvserver.main:main",
         ],
+        
     },
     author="Odudu otu",
     author_email='godspowerotu@gmail.com',
