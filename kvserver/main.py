@@ -26,7 +26,7 @@ def main():
     args = parser.parse_args()
 
     
-    observer_path = os.path.join(os.getcwd(), "setup.json")
+    observer_path = os.path.join(os.getcwd(), "kvcConfig.json")
     if not os.path.exists(observer_path):
         with open(observer_path, "w")as f:f.write(setup_data)
 

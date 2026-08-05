@@ -145,7 +145,7 @@ class SocketServer(FileSystemEventHandler):
 
     def send_initial_files(self, sock):
         try:
-            with open(os.path.join(observer_path, "setup.json"), "r", encoding="utf-8") as f:
+            with open(os.path.join(observer_path, "kvcConfig.json"), "r", encoding="utf-8") as f:
                 setup_data = load_json_data(f)
         except:
             setup_data = {"exclude_dirs": [], "exclude_files": [], "ignore_pattern": []}
@@ -155,10 +155,21 @@ class SocketServer(FileSystemEventHandler):
         for root, _, files in os.walk(observer_path):
             if "__pycache__" in root:
                 continue
+            
+            excluded = False
+            for exclude_dir in setup_data.get("exclude_dirs"):
+                if exclude_dir in root:
+                    excluded = True
+                    break
+            if excluded:continue
 
             for name in files:
                 try:
                     if name in setup_data["exclude_files"]:
+                        continue
+                    
+                    fn, ext = os.path.splitext(name)
+                    if ext in setup_data["ignore_pattern"]:
                         continue
 
                     path = os.path.join(root, name)
