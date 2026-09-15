@@ -30,3 +30,14 @@ sudo kvserver #To run the server on default port 7000
 
 sudo kvserver <port> #To run the server on custom port
 ```
+App config.json
+```
+{
+    "name": "Galaxzy",
+    "icon": "icon.png",
+    "orientation": "landscape", // landscape, portrait, sensor
+    "kivymd_version": "KIVYMD_1_2_0", // KIVYMD_1_2_0, KIVYMD_2_0_1_dev0
+    "nav_status_bar_style": "navStaLight", // navStaDefault, navStaLight, navStaDark
+    "edge_to_edge": true
+}
+```
