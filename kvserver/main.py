@@ -5,13 +5,15 @@ from kvserver.server import SocketServer
 setup_data = '''{
     "exclude_dirs":[
         "env",
-        "venv"
+        "venv",
+	"native"
     ],
     "exclude_files":[
         ".gitignore"
     ],
     "ignore_pattern":[
-        ".gitignore"
+        ".gitignore",
+	".jar"
     ]
 
 }'''
